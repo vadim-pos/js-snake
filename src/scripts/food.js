@@ -1,4 +1,4 @@
-import { getRandomInt } from '../shared/helpers';
+import { getRandomInt } from './shared/helpers';
 
 export class Food {
     constructor(size) {

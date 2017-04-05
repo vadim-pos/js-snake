@@ -96,8 +96,6 @@ export class Game {
             }
 
             this.derctionIsSelected = true;
-
-            // if (!this.gameLoop) { this.gameLoop = setInterval(this.drawGame.bind(this), 100); }
         });
     }
 }

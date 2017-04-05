@@ -8,7 +8,7 @@ export class Stats {
 
     printScore(score) {
         this.ctx.fillStyle = 'black';
-        this.ctx.fillRect(0, 0, this.w, this.h); // !!!!!!!!!!!!!!!!!!!!!!!!!!!
+        this.ctx.fillRect(0, 0, this.w, this.h);
         
         // draw text
         const text = `Score: ${score}`;
