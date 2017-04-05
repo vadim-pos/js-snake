@@ -23,7 +23,6 @@ export class Food {
         
         for (var i = 0; i < exceptions.length; i++) {
             if (exceptions[i].x === x && exceptions[i].y === y) {
-                console.log('This is snake\'s body!');
                 return this.setNewCoords(boardWidth, boardHeight, exceptions);
             }
         }

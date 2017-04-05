@@ -2,6 +2,8 @@ import { Game } from './game';
 import { Stats } from './stats';
 import { UI } from './ui';
 
+/* Mediator handle interaction of game components and responsible for fetching and saving the data*/
+
 export const Mediator = {
     game: null,
     interface: null,
@@ -44,6 +46,8 @@ export const Mediator = {
                 this.ui.activate('scores');
         }
     },
+
+    /* ----- fetching and saving data ----- */
 
     getScores() {
         let scores = JSON.parse(localStorage.getItem('snake-game-scores'));

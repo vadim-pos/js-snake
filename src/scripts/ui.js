@@ -1,5 +1,7 @@
 import { Mediator } from './mediator';
 
+/* UI class is responsible for user interface operations such as showing/hiding and handling user iteraction */
+
 export class UI {
     constructor(options) {
         this.el = options.el;

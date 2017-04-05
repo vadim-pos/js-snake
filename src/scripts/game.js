@@ -14,17 +14,19 @@ export class Game {
         this.food  = null;
 
         this.score = null;
-        this.level = null;
         
+        /* direction of snake's movement */
         this.direction = '';
-        this.derctionIsSelected = false;
+        /* flag */
+        this.directionIsSelected = false;
+        /* contain game loop timer */
         this.gameLoop = null;
     }
 
     init() {
         this.score = 0;
         this.level = 1;
-        
+        /* create snake's body with single block and left center position  */
         this.snake = new Snake([{x: 0, y: this.h/2 - this.blockSize/2 }], this.blockSize);
         this.food = new Food(this.blockSize);
 
@@ -36,22 +38,20 @@ export class Game {
 
         this.gameLoop = setTimeout(this.drawGame.bind(this), 100);
     }
-
+    
+    /* draw new frame of the game */
     drawGame() {
         this.ctx.fillStyle = 'black';
         this.ctx.fillRect(0, 0, this.w, this.h);
         
         this.snake.move(this.direction);
         this.food.draw(this.ctx);
+        
+        /* check game over status */
+        if (this.isBorderTouched() || this.snake.isCollapsed()) {
+            return this.gameOver();
+        }
 
-        if (this.isBorderTouched()) {
-            console.log('Border touched');
-            return this.gameOver();
-        }
-        if (this.snake.isCollapsed()) {
-            console.log('Snake collapsed');
-            return this.gameOver();
-        }
         if (this.isFoodEated()) {
             this.score++;
             Mediator.handle('update-stats');
@@ -60,7 +60,7 @@ export class Game {
         }
 
         this.snake.draw(this.ctx);
-        this.derctionIsSelected = false;
+        this.directionIsSelected = false;
         this.gameLoop = setTimeout(this.drawGame.bind(this), 100 - this.score);
     }
 
@@ -76,13 +76,13 @@ export class Game {
 
     gameOver() {
         this.ctx.clearRect(0, 0, this.w, this.h);
-        this.gameLoop = clearInterval(this.gameLoop);
+        this.gameLoop = clearTimeout(this.gameLoop);
         Mediator.handle('gameover');
     }
     
     setupDOMListeners() {
         window.addEventListener('keydown', e => {
-            if (this.derctionIsSelected) { return; }
+            if (this.directionIsSelected) { return; }
 
             const key = e.keyCode;
 
@@ -96,7 +96,7 @@ export class Game {
                 this.direction = 'down';
             }
 
-            this.derctionIsSelected = true;
+            this.directionIsSelected = true;
         });
     }
 }
