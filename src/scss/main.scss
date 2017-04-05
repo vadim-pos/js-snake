@@ -28,6 +28,8 @@
     width: 920px; height: 648px;
     margin: 0 auto;
     box-shadow: longshadow(darken(#ffd54f, 20%), darken(#ffd54f, 0%), 200, 0.8);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .container {
