@@ -42,7 +42,8 @@ export class UI {
     }
 
     handleClick(e) {
-        const action = e.target.dataset.action;
+        // const action = e.target.dataset.action;
+        const action = e.target.getAttribute('data-action');
         if (action) { Mediator.handle(action); }
     }
 
@@ -55,7 +56,9 @@ export class UI {
             case 38: case 87:
                 nextItem = this.activeControl.previousElementSibling; break;
             case 13: 
-                this.activeControl.dispatchEvent(new Event('click', {'bubbles': true}));
+                let event = document.createEvent('Event');
+                event.initEvent('click', true, true);
+                this.activeControl.dispatchEvent(event);
         }
 
         if (!nextItem || !nextItem.classList.contains('control')) { return; }
