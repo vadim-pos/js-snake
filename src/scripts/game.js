@@ -13,8 +13,8 @@ export class Game {
         this.snake = null;
         this.food  = null;
 
-        this.score = 0;
-        this.level = 1;
+        this.score = null;
+        this.level = null;
         
         this.direction = '';
         this.derctionIsSelected = false;
@@ -23,6 +23,7 @@ export class Game {
 
     init() {
         this.score = 0;
+        this.level = 1;
         
         this.snake = new Snake([{x: 0, y: this.h/2 - this.blockSize/2 }], this.blockSize);
         this.food = new Food(this.blockSize);

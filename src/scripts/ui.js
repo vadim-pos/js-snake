@@ -42,7 +42,6 @@ export class UI {
     }
 
     handleClick(e) {
-        // const action = e.target.dataset.action;
         const action = e.target.getAttribute('data-action');
         if (action) { Mediator.handle(action); }
     }
