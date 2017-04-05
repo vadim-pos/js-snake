@@ -1,0 +1,71 @@
+extends templates/layout.pug
+
+block title
+    title New Project
+
+block content
+    .main-wrapper
+        .snake
+            svg(viewBox="0 0 355.5 250.3" style="enable-background:new 0 0 355.5 250.3;" xml:space="preserve")
+                rect.tv-bg(width="355.5" height="250.3")
+                rect.tv-panel(x="282.5" width="73" height="250.3")
+                path.tv-tumbler-top(d="M320.1,60.4c-13.6,0-24.7-11.1-24.7-24.7c0-13.6,11.1-24.7,24.7-24.7c13.6,0,24.7,11.1,24.7,24.7 C344.7,49.3,333.7,60.4,320.1,60.4z")
+                path.tv-tumbler-top-ctrl(d="M320.1,48.9c-7.3,0-13.2-5.9-13.2-13.2s5.9-13.2,13.2-13.2s13.2,5.9,13.2,13.2S327.3,48.9,320.1,48.9z")
+                g
+                    rect.tv-tumbler-top(x="308.5" y="34.1" transform="matrix(0.7641 -0.6451 0.6451 0.7641 52.4615 214.8817)" width="23" height="3.3")
+                path.tv-tumbler-bottom(d="M320.1,115.6c-7.3,0-14.2-3.2-18.9-8.8c-4.2-5-6.3-11.4-5.7-18c0.6-6.6,3.7-12.5,8.7-16.7 c4.4-3.7,10.1-5.8,15.8-5.8c7.3,0,14.2,3.2,18.9,8.8c8.7,10.4,7.4,26-3,34.7C331.5,113.5,325.8,115.6,320.1,115.6z")
+                path.tv-tumbler-top(d="M320.1,104.1c-3.9,0-7.6-1.7-10.1-4.7c-4.7-5.6-3.9-13.9,1.6-18.5c2.4-2,5.4-3.1,8.4-3.1 c3.9,0,7.6,1.7,10.1,4.7c2.3,2.7,3.3,6.1,3,9.6c-0.3,3.5-2,6.7-4.6,8.9C326.1,103,323.1,104.1,320.1,104.1z")
+                g
+                    rect.panel-line(x="308.5" y="89.3" transform="matrix(0.1709 -0.9853 0.9853 0.1709 175.7554 390.7185)" width="23" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="123.5" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="133.1" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="142.7" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="152.3" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="161.9" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="171.6" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="181.2" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="190.8" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="200.4" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="210" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="219.6" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="229.3" width="69.7" height="3.3")
+                g
+                    rect.panel-line(x="284.1" y="238.9" width="69.7" height="3.3")
+            .container
+                .canvases
+                    canvas.stats-canvas(width="620px" height="80px")
+                    canvas.game-canvas(width="620px" height="460px")
+                .interface
+                    .menu
+                        a.control(data-action="start") Start Game!
+                        a.control(data-action="show-scores") Scores
+                        .menu__desc
+                            .menu__desc-header Controls:
+                            ul.menu__desc-list
+                                li.menu__desc-item
+                                    |#[span.menu__desc-title Navigation, Snake direction:]
+                                    |#[span.menu__desc-info W,A,S,D or arrows]
+                                li.menu__desc-item
+                                    |#[span.menu__desc-title Selection:]
+                                    |#[span.menu__desc-info Enter]
+                    .message
+                        p.message__heading
+                        p.message__content
+                        a.control(data-action="restart") OK
+                    .scores
+                        p.scores__heading Top scores
+                        ol.scores__list
+                            div Scores not found
+                        a.control(data-action="restart") OK

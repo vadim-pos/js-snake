@@ -1,0 +1,11 @@
+body, html {
+    height: 100%;
+}
+html {
+    box-sizing: border-box;
+    font-size: $baseFontSize;
+}
+body { margin: 0; }
+*, *:before, *:after {
+    box-sizing: inherit;
+} 
